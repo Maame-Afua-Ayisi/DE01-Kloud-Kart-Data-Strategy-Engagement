@@ -1,6 +1,6 @@
-# Situation Diagnosis
+**Situation Diagnosis**
 
-# 1. Executive assessment
+**1\. Executive assessment**
 
 Kloud Kart has outgrown its informal approach to data management. Although the company processes approximately 4,000 orders daily, its current data environment creates challenges with website performance, reporting reliability, customer data management and its ability to support future growth.
 
@@ -8,9 +8,9 @@ The central problem is not the absence of an advanced data warehouse or real-tim
 
 These weaknesses create operational, financial and regulatory risks. Kloud Kart should address them before investing in more advanced data technologies.
 
-# 2. Root-cause analysis and business costs
+**2\. Root-cause analysis and business costs**
 
-## 1. Reporting workloads compete with the live website
+**1\. Reporting workloads compete with the live website**
 
 **Priority:** Critical
 
@@ -20,17 +20,19 @@ These weaknesses create operational, financial and regulatory risks. Kloud Kart 
 
 **Evidence needed:** Measure incident duration and frequency, affected sessions and orders, database CPU/memory/disk use, and the queries responsible for the reporting workload.
 
-## 2. Customer information lacks effective governance
+**2\. Customer information lacks effective governance**
 
 **Priority:** Critical
 
 **Root cause:** Kloud Kart does not sufficiently control how customer information is accessed, exported, stored, shared, retained and deleted. Customer-list exports can create copies outside the original database without the company's knowledge. Deleting a record from MySQL does not automatically remove copies in spreadsheets, backups or third-party systems.
 
+The underlying weakness is the absence of a central process for recording customer data exports, assigning responsibility for stored copies and verifying that information is appropriately deleted or retained.
+
 **Potential business cost:** Potential costs include investigation and administrative expenses, legal and compliance advice, regulatory consequences and reputational damage.
 
 **Evidence needed:** Identify data-copy locations, employees and third parties with access, retention and deletion procedures, deletion evidence, and Data Protection Commission registration/compliance status.
 
-## 3. Business reporting lacks consistent definitions and controls
+**3\. Business reporting lacks consistent definitions and controls**
 
 **Priority:** High
 
@@ -40,7 +42,7 @@ These weaknesses create operational, financial and regulatory risks. Kloud Kart 
 
 **Evidence needed:** Compare both departments' calculation methods, reporting periods and source data; measure the number/value of differing records and time spent preparing and reconciling reports.
 
-## 4. Kloud Kart lacks dedicated data management capability
+**4\. Kloud Kart lacks dedicated data management capability**
 
 **Priority:** High
 
@@ -50,7 +52,7 @@ These weaknesses create operational, financial and regulatory risks. Kloud Kart 
 
 **Evidence needed:** Assess developer workload, reporting effort, skills needed to operate the proposed environment, salary expectations and current backup/monitoring responsibilities.
 
-## 5. Technology ambitions are ahead of business requirements
+**5\. Technology ambitions are ahead of business requirements**
 
 **Priority:** Medium
 
@@ -60,7 +62,7 @@ These weaknesses create operational, financial and regulatory risks. Kloud Kart 
 
 **Evidence needed:** Identify decisions that genuinely need real-time information, departmental refresh needs, supplier costs, maintenance requirements and measurable value from forecasting.
 
-# 3. Risk ranking and prioritization
+**3\. Risk ranking and prioritization**
 
 | **Rank** | **Root cause**                                       | **Likelihood**                           | **Business impact** | **Priority** |
 | -------- | ---------------------------------------------------- | ---------------------------------------- | ------------------- | ------------ |
@@ -72,7 +74,7 @@ These weaknesses create operational, financial and regulatory risks. Kloud Kart 
 
 Production database performance ranks first because it has already affected the live website and can interfere directly with customer transactions. Customer data governance ranks second because uncontrolled copies create compliance and reputational exposure, made more urgent by the outstanding complaint. Reporting reliability ranks third because management and investors need trustworthy figures. The capability gap ranks fourth because improvements must be maintainable. Technology investment ranks fifth because it is a longer-term investment risk, while the other issues require more immediate attention.
 
-# 4. Cost assessment
+**4\. Cost assessment**
 
 | **Root cause**                  | **Potential cost to Kloud Kart**                                                     | **Information needed to quantify**                                                 |
 | ------------------------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
@@ -84,7 +86,9 @@ Production database performance ranks first because it has already affected the 
 
 The case study does not provide financial statements, hosting invoices, salary estimates or incident records. Exact monetary losses therefore cannot be calculated reliably. The costs above are potential business exposures, not confirmed financial losses. Actual operational records, financial information and supplier quotations are required to quantify them.
 
-# 5. Compliance and customer data risks
+The potential revenue impact of website slowdowns can be estimated using affected orders, average order value and incident duration. These figures should be treated as estimates of exposure rather than confirmed lost revenue.
+
+**5\. Compliance and customer data risks**
 
 Customer information management requires particular attention because the brief identifies Ghana's Data Protection Act, 2012 (Act 843). The lack of visibility over exported customer-list copies raises concerns about access, retention, deletion, third-party sharing and accountability.
 
@@ -98,9 +102,11 @@ Customer information management requires particular attention because the brief 
 
 Kloud Kart should identify where the affected customer's information exists, determine which copies need to be addressed, document the actions taken and retain evidence of its response. It should also verify its Data Protection Commission registration and applicable obligations under Act 843. The Nigeria pilot should be assessed for relevant cross-border data protection requirements.
 
+**Immediate priority – outstanding complaint:** Kloud Kart should assign a responsible person to coordinate the outstanding complaint, identify the customer information involved, locate relevant copies, document actions taken and retain supporting evidence. Progress should be monitored against the 90-day response constraint provided in the case study.
+
 The 90-day response requirement is treated as a constraint supplied by the case study, not as a general statutory deadline under Act 843.
 
-# 6. Discovery questions
+**6\. Discovery questions**
 
 | **Area**              | **Questions to validate the diagnosis**                                                                           |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -115,9 +121,9 @@ The 90-day response requirement is treated as a constraint supplied by the case 
 
 Nana is unavailable for follow-up, so these questions remain documented validation requirements. The recommendation must proceed using the facts in the brief and clearly identified assumptions.
 
-# 7. Assumptions and limitations
+**7\. Assumptions and limitations**
 
-## Facts provided by the case study
+**Facts provided by the case study**
 
 - Kloud Kart is a three-year-old e-commerce company operating in Accra and has started piloting in Nigeria.
 - It ships approximately 4,000 orders daily and has a MySQL database of approximately 40 GB.
@@ -127,7 +133,7 @@ Nana is unavailable for follow-up, so these questions remain documented validati
 - A second server or read replica is pre-approved.
 - Stock counts cannot go stale, while other reporting can refresh daily.
 
-## Assumptions requiring validation
+**Assumptions requiring validation**
 
 - MySQL is the primary source of truth for orders, inventory and customer accounts.
 - Reporting exports are executed against the production database.
@@ -136,7 +142,7 @@ Nana is unavailable for follow-up, so these questions remain documented validati
 - Daily refreshes are sufficient for management reporting.
 - The existing application can continue handling authoritative stock transactions independently of reporting.
 
-## Information unavailable
+**Information unavailable**
 
 - Actual database schema and table sizes.
 - Current infrastructure and hosting costs.
@@ -149,7 +155,7 @@ Nana is unavailable for follow-up, so these questions remain documented validati
 
 This diagnosis is based on the supplied case study rather than a direct audit of Kloud Kart's production systems. Assumptions are used to guide the assessment and should not be presented as confirmed findings.
 
-# 8. Final consultant's position
+**8\. Final consultant's position**
 
 Kloud Kart's main challenge is not the absence of advanced data technology. It is the absence of a reliable and controlled data management foundation. The company is exposing its live website to reporting workloads, cannot confidently reconcile its business figures and lacks sufficient control over customer information. These weaknesses are made more serious by its limited technical capacity, funding expectations and planned expansion into Nigeria.
 
@@ -159,4 +165,4 @@ Kloud Kart's main challenge is not the absence of advanced data technology. It i
 - Build the technical capability needed to maintain improvements.
 - Introduce advanced analytics only when a measurable business requirement justifies the investment.
 
-**Conclusion:** Kloud Kart should prioritize operational stability, trusted business reporting and responsible customer data management before investing in real-time analytics or machine learning. Establishing these foundations will help the company make better decisions, protect customer information and support future growth without introducing unnecessary technology or operational complexity.**
+**Conclusion:** Kloud Kart should prioritize operational stability, trusted business reporting and responsible customer data management before investing in real-time analytics or machine learning. Establishing these foundations will help the company make better decisions, protect customer information and support future growth without introducing unnecessary technology or operational complexity.
